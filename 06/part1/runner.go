@@ -2,20 +2,15 @@ package part1
 
 import (
 	"log"
-	"strconv"
-	"strings"
+
+	"github.com/abeltay/advent-of-code-2021/parse"
 )
 
 // Runner runs the algorithm to get the answer
 func Runner(data []string) int {
-	sarr := strings.Split(data[0], ",")
-	population := make([]int, 0, len(sarr))
-	for i := range sarr {
-		num, err := strconv.Atoi(sarr[i])
-		if err != nil {
-			log.Fatal(err)
-		}
-		population = append(population, num)
+	population, err := parse.StringToIntArray(data[0])
+	if err != nil {
+		log.Fatal(err)
 	}
 	for i := 0; i < 80; i++ {
 		var baby int

@@ -1,24 +1,18 @@
 package part2
 
 import (
-	"fmt"
 	"log"
-	"strconv"
-	"strings"
+
+	"github.com/abeltay/advent-of-code-2021/parse"
 )
 
 // Runner runs the algorithm to get the answer
 func Runner(data []string) int {
-	sarr := strings.Split(data[0], ",")
-	population := make([]int, 0, len(sarr))
-	for i := range sarr {
-		num, err := strconv.Atoi(sarr[i])
-		if err != nil {
-			log.Fatal(err)
-		}
-		population = append(population, num)
+	population, err := parse.StringToIntArray(data[0])
+	if err != nil {
+		log.Fatal(err)
 	}
-	size := make([]int, len(sarr))
+	size := make([]int, len(population))
 	for i := range size {
 		size[i] = 1
 	}
@@ -37,8 +31,7 @@ func Runner(data []string) int {
 		}
 		population = append(population, 8)
 		size = append(size, baby)
-		// fmt.Printf("After %d day: \n", i+1)
-		fmt.Printf("After %d day: %v\n", i+1, size)
+		// fmt.Printf("After %d day: %v\n", i+1, size)
 	}
 	var total int
 	for i := range size {
