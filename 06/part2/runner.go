@@ -12,30 +12,22 @@ func Runner(data []string) int {
 	if err != nil {
 		log.Fatal(err)
 	}
-	size := make([]int, len(population))
-	for i := range size {
-		size[i] = 1
+	var days [9]int
+	for i := range population {
+		days[population[i]]++
 	}
 	for i := 0; i < 256; i++ {
-		var baby int
-		for j := range population {
-			if population[j] <= 0 {
-				baby += size[j]
-				population[j] = 6
-				continue
-			}
-			population[j]--
+		temp := days[0]
+		for j := 1; j < len(days); j++ {
+			days[j-1] = days[j]
 		}
-		if baby == 0 {
-			continue
-		}
-		population = append(population, 8)
-		size = append(size, baby)
-		// fmt.Printf("After %d day: %v\n", i+1, size)
+		days[8] = temp
+		days[6] += temp
+		// fmt.Printf("After %d day: %v\n", i+1, days)
 	}
 	var total int
-	for i := range size {
-		total += size[i]
+	for _, v := range days {
+		total += v
 	}
 	return total
 }
