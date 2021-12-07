@@ -1,10 +1,10 @@
 package part2
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"testing"
+
+	"github.com/abeltay/advent-of-code-2021/file"
 )
 
 func TestRunner(t *testing.T) {
@@ -21,24 +21,11 @@ func TestRunner(t *testing.T) {
 	})
 
 	t.Run("full input", func(t *testing.T) {
-		data := readFullData(t, "../input.txt")
+		data, err := file.ReadFullData("../input.txt")
+		if err != nil {
+			t.Fatal(err)
+		}
 		got := Runner(data)
 		fmt.Println(got, "is the answer")
 	})
-}
-
-func readFullData(t *testing.T, fname string) []string {
-	t.Helper()
-	f, err := os.Open(fname)
-	if err != nil {
-		t.Fatalf("Could not open %q: %q", fname, err)
-	}
-	defer f.Close()
-
-	scanner := bufio.NewScanner(f)
-	var data []string
-	for scanner.Scan() {
-		data = append(data, scanner.Text())
-	}
-	return data
 }
