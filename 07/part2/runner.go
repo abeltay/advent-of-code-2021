@@ -1,4 +1,4 @@
-package part1
+package part2
 
 import (
 	"log"
@@ -36,7 +36,8 @@ func calculateDist(arr []int, point int) int {
 		if diff < 0 {
 			diff = diff * -1
 		}
-		total += diff
+		ans := diff * (diff + 1) / 2
+		total += ans
 	}
 	return total
 }
