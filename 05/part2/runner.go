@@ -1,7 +1,6 @@
 package part2
 
 import (
-	"fmt"
 	"log"
 	"strconv"
 	"strings"
@@ -93,7 +92,11 @@ func Runner(data []string) int {
 		}
 		drawDiagonal(ocean, start[i], end[i])
 	}
-	// output.TwoDimensionalIntArray(ocean)
+	/*
+		for i := range arr {
+			fmt.Println(arr[i])
+		}
+	*/
 	var count int
 	for i := range ocean {
 		for j := range ocean[i] {
@@ -111,7 +114,7 @@ func drawDiagonal(ocean [][]int, start, end coord) {
 		return
 	}
 	for i, j := start.y, start.x; i <= end.y; i++ {
-		fmt.Printf("coords: %v %v %d %d\n", start, end, i, j)
+		// fmt.Printf("coords: %v %v %d %d\n", start, end, i, j)
 		ocean[i][j]++
 		if start.x < end.x {
 			j++

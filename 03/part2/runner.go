@@ -1,7 +1,6 @@
 package part2
 
 import (
-	"fmt"
 	"log"
 	"strconv"
 	"strings"
@@ -35,7 +34,7 @@ func Runner(data []string) int {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(oxygen, "is the oxygen generator rating")
+	// fmt.Println(oxygen, "is the oxygen generator rating")
 
 	prefix, val = "", ""
 	for j := 0; j < len(data[0]); j++ {
@@ -63,7 +62,7 @@ func Runner(data []string) int {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(co2, "is the CO2 scrubber rating")
+	// fmt.Println(co2, "is the CO2 scrubber rating")
 
 	return int(oxygen * co2)
 }

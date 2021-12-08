@@ -90,7 +90,11 @@ func Runner(data []string) int {
 			continue
 		}
 	}
-	// output.TwoDimensionalIntArray(ocean)
+	/*
+		for i := range arr {
+			fmt.Println(arr[i])
+		}
+	*/
 	var count int
 	for i := range ocean {
 		for j := range ocean[i] {
