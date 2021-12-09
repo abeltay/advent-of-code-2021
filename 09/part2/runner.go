@@ -9,13 +9,13 @@ import (
 
 // Runner runs the algorithm to get the answer
 func Runner(data []string) int {
-	var arr [][]int
+	arr := make([][]int, len(data))
 	for i := range data {
 		iarr, err := parse.ContinuousStringToIntArray(data[i])
 		if err != nil {
 			log.Fatal(err)
 		}
-		arr = append(arr, iarr)
+		arr[i] = iarr
 	}
 	/*
 		for i := range arr {
