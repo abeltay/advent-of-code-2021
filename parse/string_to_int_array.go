@@ -18,3 +18,16 @@ func StringToIntArray(input string) ([]int, error) {
 	}
 	return arr, nil
 }
+
+// ContinuousStringToIntArray converts a string "2199943210" into int array []int{2,1,9,9,9,4,3,2,1,0}
+func ContinuousStringToIntArray(input string) ([]int, error) {
+	arr := make([]int, len(input))
+	for i := range input {
+		num, err := strconv.Atoi(string(input[i]))
+		if err != nil {
+			return nil, err
+		}
+		arr[i] = num
+	}
+	return arr, nil
+}

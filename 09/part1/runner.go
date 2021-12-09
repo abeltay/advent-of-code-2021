@@ -2,20 +2,17 @@ package aoc
 
 import (
 	"log"
-	"strconv"
+
+	"github.com/abeltay/advent-of-code-2021/parse"
 )
 
 // Runner runs the algorithm to get the answer
 func Runner(data []string) int {
 	var arr [][]int
 	for i := range data {
-		var iarr []int
-		for j := range data[i] {
-			num, err := strconv.Atoi(string(data[i][j]))
-			if err != nil {
-				log.Fatal(err)
-			}
-			iarr = append(iarr, num)
+		iarr, err := parse.ContinuousStringToIntArray(data[i])
+		if err != nil {
+			log.Fatal(err)
 		}
 		arr = append(arr, iarr)
 	}
