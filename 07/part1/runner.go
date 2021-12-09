@@ -14,7 +14,7 @@ func Runner(data []string) int {
 	if err != nil {
 		log.Fatal(err)
 	}
-	sort.Sort(sort.IntSlice(loc))
+	sort.Ints(loc)
 	// fmt.Println(loc)
 
 	last := math.MaxInt64

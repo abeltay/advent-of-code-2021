@@ -31,7 +31,7 @@ func Runner(data []string) int {
 			sizes = append(sizes, crawl(arr, i, j))
 		}
 	}
-	sort.Sort(sort.IntSlice(sizes))
+	sort.Ints(sizes)
 	// fmt.Println(sizes)
 	count := 1
 	for i := 0; i < 3; i++ {
