@@ -4,7 +4,7 @@ package aoc
 func Runner(data []string) int {
 	var count int
 	for i := range data {
-		var stack []byte
+		stack := make([]byte, 0, len(data[i])/2)
 		var corrupted bool
 		for j := range data[i] {
 			switch data[i][j] {
