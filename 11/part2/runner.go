@@ -22,7 +22,7 @@ func Runner(data []string) int {
 		arr[i] = iarr
 	}
 	var step int
-	for {
+	for !isDone(arr) {
 		queue := list.New()
 		for j := range arr {
 			for k := range arr[j] {
@@ -41,9 +41,6 @@ func Runner(data []string) int {
 			ele = queue.Front()
 		}
 		step++
-		if isDone(arr) {
-			break
-		}
 	}
 	return step
 }
