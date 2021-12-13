@@ -9,14 +9,9 @@ import (
 
 func TestRunner(t *testing.T) {
 	t.Run("example input", func(t *testing.T) {
-		data := []string{
-			"start-A",
-			"start-b",
-			"A-c",
-			"A-b",
-			"b-d",
-			"A-end",
-			"b-end",
+		data, err := file.ReadFullData("../example.txt")
+		if err != nil {
+			t.Fatal(err)
 		}
 		want := 10
 		got := Runner(data)
@@ -26,17 +21,9 @@ func TestRunner(t *testing.T) {
 		}
 	})
 	t.Run("second input", func(t *testing.T) {
-		data := []string{
-			"dc-end",
-			"HN-start",
-			"start-kj",
-			"dc-start",
-			"dc-HN",
-			"LN-dc",
-			"HN-end",
-			"kj-sa",
-			"kj-HN",
-			"kj-dc",
+		data, err := file.ReadFullData("../example2.txt")
+		if err != nil {
+			t.Fatal(err)
 		}
 		want := 19
 		got := Runner(data)
@@ -46,25 +33,9 @@ func TestRunner(t *testing.T) {
 		}
 	})
 	t.Run("third input", func(t *testing.T) {
-		data := []string{
-			"fs-end",
-			"he-DX",
-			"fs-he",
-			"start-DX",
-			"pj-DX",
-			"end-zg",
-			"zg-sl",
-			"zg-pj",
-			"pj-he",
-			"RW-he",
-			"fs-DX",
-			"pj-RW",
-			"zg-RW",
-			"start-pj",
-			"he-WI",
-			"zg-he",
-			"pj-fs",
-			"start-RW",
+		data, err := file.ReadFullData("../example3.txt")
+		if err != nil {
+			t.Fatal(err)
 		}
 		want := 226
 		got := Runner(data)
