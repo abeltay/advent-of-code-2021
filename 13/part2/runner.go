@@ -95,7 +95,6 @@ func Runner(data []string) {
 		}
 	}
 	for i := range img {
-		fmt.Println()
 		for j := range img[i] {
 			if img[i][j] == 0 {
 				fmt.Print(" ")
@@ -103,5 +102,6 @@ func Runner(data []string) {
 				fmt.Print("█")
 			}
 		}
+		fmt.Println()
 	}
 }
