@@ -82,7 +82,7 @@ func Runner(data []string) {
 					img[folds[n].line-1-i][j] += img[folds[n].line+1+i][j]
 				}
 			}
-			img = img[:folds[0].line]
+			img = img[:folds[n].line]
 		} else {
 			for i := range img {
 				for j := 0; j < folds[n].line; j++ {
