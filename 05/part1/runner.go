@@ -2,8 +2,9 @@ package part1
 
 import (
 	"log"
-	"strconv"
 	"strings"
+
+	"github.com/abeltay/advent-of-code-2021/parse"
 )
 
 // Runner runs the algorithm to get the answer
@@ -18,38 +19,28 @@ func Runner(data []string) int {
 	for i := range data {
 		sarr := strings.Split(data[i], " -> ")
 
-		startCoord := strings.Split(sarr[0], ",")
-		x, err := strconv.Atoi(startCoord[0])
+		startCoord, err := parse.StringToIntArray(sarr[0])
 		if err != nil {
 			log.Fatal(err)
 		}
-		y, err := strconv.Atoi(startCoord[1])
-		if err != nil {
-			log.Fatal(err)
+		start = append(start, coord{startCoord[0], startCoord[1]})
+		if startCoord[0] > maxX {
+			maxX = startCoord[0]
 		}
-		start = append(start, coord{x, y})
-		if x > maxX {
-			maxX = x
-		}
-		if y > maxY {
-			maxY = y
+		if startCoord[1] > maxY {
+			maxY = startCoord[1]
 		}
 
-		endCoord := strings.Split(sarr[1], ",")
-		x, err = strconv.Atoi(endCoord[0])
+		endCoord, err := parse.StringToIntArray(sarr[1])
 		if err != nil {
 			log.Fatal(err)
 		}
-		y, err = strconv.Atoi(endCoord[1])
-		if err != nil {
-			log.Fatal(err)
+		end = append(end, coord{endCoord[0], endCoord[1]})
+		if endCoord[0] > maxX {
+			maxX = endCoord[0]
 		}
-		end = append(end, coord{x, y})
-		if x > maxX {
-			maxX = x
-		}
-		if y > maxY {
-			maxY = y
+		if endCoord[1] > maxY {
+			maxY = endCoord[1]
 		}
 	}
 	// fmt.Println(start)

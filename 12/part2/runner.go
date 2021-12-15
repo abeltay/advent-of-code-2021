@@ -62,6 +62,7 @@ type Node struct {
 	items []*Node
 }
 
+// SizeBig checks if a cave is big
 func (f Node) SizeBig() bool {
 	return unicode.IsUpper(rune(f.name[0]))
 }
