@@ -1,23 +1,16 @@
 package aoc
 
 import (
-	"fmt"
 	"log"
 	"strconv"
 )
 
 // Runner runs the algorithm to get the answer
 func Runner(data []string) int {
-	// for i := range arr {
-	// 	fmt.Println(arr[i])
-	// }
-	var count int
 	strm := stream{
 		encoded: data[0],
 	}
-	count += parsePacket(&strm)
-	strm.flush()
-	return count
+	return parsePacket(&strm)
 }
 
 type stream struct {
@@ -36,16 +29,8 @@ func (f *stream) read(num int) string {
 	}
 	out := string(f.buffer[:num])
 	f.buffer = f.buffer[num:]
-	fmt.Println(out)
+	// fmt.Println(out)
 	return out
-}
-
-func (f stream) more() bool {
-	return f.pointer != len(f.encoded)
-}
-
-func (f *stream) flush() {
-	f.buffer = ""
 }
 
 func (f *stream) position() int {
@@ -127,7 +112,7 @@ func parsePacket(strm *stream) int {
 		for strm.position()-start < int(length)-1 {
 			numbers = append(numbers, parsePacket(strm))
 		}
-	} else if s == "1" {
+	} else {
 		// 11-bit number for subpackets
 		s = strm.read(11)
 		pkts, err := strconv.ParseInt(s, 2, 64)
