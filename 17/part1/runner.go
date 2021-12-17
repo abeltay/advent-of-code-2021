@@ -21,7 +21,7 @@ func Runner(data []string) int {
 	// fmt.Println(targetY)
 	var x, y, ans int
 	for x = 1; x <= targetX[1]; x++ {
-		for y = 1; y < 10000; y++ {
+		for y = 1; y < 1000; y++ {
 			h := calcHeight(targetX, targetY, x, y)
 			// if h != 0 {
 			// 	fmt.Printf("x: %d, y:%d, h:%d\n", x, y, h)
