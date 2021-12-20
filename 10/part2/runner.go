@@ -60,7 +60,7 @@ func Runner(data []string) int {
 				count *= 5
 				switch stack[i] {
 				case '(':
-					count += 1
+					count++
 				case '[':
 					count += 2
 				case '{':
