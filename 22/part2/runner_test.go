@@ -9,7 +9,7 @@ import (
 
 func TestRunner(t *testing.T) {
 	t.Run("example input", func(t *testing.T) {
-		data, err := file.ReadFullData("../example2.txt")
+		data, err := file.ReadFullData("example.txt")
 		if err != nil {
 			t.Fatal(err)
 		}

@@ -23,7 +23,7 @@ func TestRunner(t *testing.T) {
 		}
 	})
 	t.Run("example input", func(t *testing.T) {
-		data, err := file.ReadFullData("../example.txt")
+		data, err := file.ReadFullData("example.txt")
 		if err != nil {
 			t.Fatal(err)
 		}
