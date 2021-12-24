@@ -24,7 +24,7 @@ func Runner(data space) int {
 }
 
 func printSpace(s space) {
-	fmt.Println("-----")
+	fmt.Println("-----------")
 	for i := range s.hallway {
 		if s.hallway[i] == -1 {
 			fmt.Print(".")
