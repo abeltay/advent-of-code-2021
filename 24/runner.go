@@ -8,7 +8,7 @@ import (
 )
 
 // Runner runs the algorithm to get the answer
-func Runner(data []string) int {
+func Runner(data []string) {
 	// Work backwards through the data to find answer
 	fmt.Println(valid(data, 99911993949684))
 	fmt.Println(valid(data, 62911941716111))
@@ -18,8 +18,6 @@ func Runner(data []string) int {
 	// 		return start
 	// 	}
 	// }
-	var ans int
-	return ans
 }
 
 func valid(data []string, start int) bool {
@@ -44,7 +42,7 @@ func valid(data []string, start int) bool {
 			continue
 		}
 		process(instruc, &w, &x, &y, &z)
-		fmt.Println(instruc, w, x, y, z)
+		// fmt.Println(instruc, w, x, y, z)
 	}
 	if z == 0 {
 		return true
