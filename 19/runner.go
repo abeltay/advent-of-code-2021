@@ -38,9 +38,9 @@ func Runner(data []string) {
 		}
 		scanners[p].beacons = append(scanners[p].beacons, [3]int{num, num2, num3})
 	}
-	for i := range scanners {
-		fmt.Println(scanners[i])
-	}
+	// for i := range scanners {
+	// 	fmt.Println(scanners[i])
+	// }
 	fmt.Println(solve(scanners))
 }
 
