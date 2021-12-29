@@ -248,7 +248,7 @@ func solve(scanners []scanner) (int, int) {
 	}
 	wg.Wait()
 
-	// BFS to find transforms into scanner0 coordiante space
+	// BFS to find transforms into scanner0 coordinate space
 	q := append(make([]int, 0, len(scanners)), 0)
 	transforms := make([]*transform, len(scanners))
 	transforms[0] = &idTransform
