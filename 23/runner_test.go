@@ -10,10 +10,10 @@ func TestRunner(t *testing.T) {
 		data := space{
 			hallway: []int{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 			rooms: [][]int{
-				[]int{0, 1},
-				[]int{3, 2},
-				[]int{2, 1},
-				[]int{0, 3},
+				{0, 1},
+				{3, 2},
+				{2, 1},
+				{0, 3},
 			},
 		}
 		want := 12521
@@ -26,10 +26,10 @@ func TestRunner(t *testing.T) {
 		data := space{
 			hallway: []int{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 			rooms: [][]int{
-				[]int{1, 3},
-				[]int{0, 0},
-				[]int{3, 1},
-				[]int{2, 2},
+				{1, 3},
+				{0, 0},
+				{3, 1},
+				{2, 2},
 			},
 		}
 		got := Runner(data)
@@ -39,10 +39,10 @@ func TestRunner(t *testing.T) {
 		data := space{
 			hallway: []int{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 			rooms: [][]int{
-				[]int{0, 3, 3, 1},
-				[]int{3, 1, 2, 2},
-				[]int{2, 0, 1, 1},
-				[]int{0, 2, 0, 3},
+				{0, 3, 3, 1},
+				{3, 1, 2, 2},
+				{2, 0, 1, 1},
+				{0, 2, 0, 3},
 			},
 		}
 		want := 44169
@@ -55,10 +55,10 @@ func TestRunner(t *testing.T) {
 		data := space{
 			hallway: []int{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 			rooms: [][]int{
-				[]int{1, 3, 3, 3},
-				[]int{0, 1, 2, 0},
-				[]int{3, 0, 1, 1},
-				[]int{2, 2, 0, 2},
+				{1, 3, 3, 3},
+				{0, 1, 2, 0},
+				{3, 0, 1, 1},
+				{2, 2, 0, 2},
 			},
 		}
 		got := Runner(data)
