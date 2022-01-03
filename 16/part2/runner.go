@@ -77,9 +77,9 @@ func convert(char byte) string {
 }
 
 func parsePacket(strm *stream) int {
-	s := strm.read(3)
+	strm.read(3)
 	// Version parse
-	s = strm.read(3)
+	s := strm.read(3)
 	id, err := strconv.ParseInt(s, 2, 64)
 	if err != nil {
 		log.Fatal("id parse ", err)
