@@ -1,7 +1,6 @@
 package aoc
 
 import (
-	"fmt"
 	"log"
 	"strconv"
 	"strings"
@@ -15,7 +14,7 @@ type fold struct {
 }
 
 // Runner runs the algorithm to get the answer
-func Runner(data []string) {
+func Runner(data []string) [][]int {
 	var maxX, maxY int
 	var parseFold bool
 	var folds []fold
@@ -94,14 +93,5 @@ func Runner(data []string) {
 			}
 		}
 	}
-	for i := range img {
-		for j := range img[i] {
-			if img[i][j] == 0 {
-				fmt.Print(" ")
-			} else {
-				fmt.Print("█")
-			}
-		}
-		fmt.Println()
-	}
+	return img
 }
